@@ -4,9 +4,23 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>Get That Verse!</title>
+  <title>Read That Verse!</title>
+  <link rel="stylesheet" href="index.css">
 </head>
 <body>
-  
+  <div id="app">
+    Você precisa habilitar o javascript para utilizar este app!
+  </div>
+  <template id="template" style="display: none;">
+    <div class="main-content">
+      <section class="input-container">
+        <input v-model="verse" :placeholder="placeholder" />
+        <button @click="go">Go and read!</button>
+      </section>
+    </div>
+  </template>
+
+  <script src="https://unpkg.com/vue"></script>
+  <script src="./index.js"></script>
 </body>
 </html>
