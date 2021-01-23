@@ -1,37 +1,26 @@
-## Welcome to GitHub Pages
+# Read That Verse (read-that-verse)
 
-You can use the [editor on GitHub](https://github.com/Matheus-de-Souza/get-that-verse/edit/master/README.md) to maintain and preview the content for your website in Markdown files.
+It's a super simple verse finder
 
-Whenever you commit to this repository, GitHub Pages will run [Jekyll](https://jekyllrb.com/) to rebuild the pages in your site, from the content in your Markdown files.
-
-### Markdown
-
-Markdown is a lightweight and easy-to-use syntax for styling your writing. It includes conventions for
-
-```markdown
-Syntax highlighted code block
-
-# Header 1
-## Header 2
-### Header 3
-
-- Bulleted
-- List
-
-1. Numbered
-2. List
-
-**Bold** and _Italic_ and `Code` text
-
-[Link](url) and ![Image](src)
+## Install the dependencies
+```bash
+npm install
 ```
 
-For more details see [GitHub Flavored Markdown](https://guides.github.com/features/mastering-markdown/).
+### Start the app in development mode (hot-code reloading, error reporting, etc.)
+```bash
+quasar dev
+```
 
-### Jekyll Themes
+### Lint the files
+```bash
+npm run lint
+```
 
-Your Pages site will use the layout and styles from the Jekyll theme you have selected in your [repository settings](https://github.com/Matheus-de-Souza/get-that-verse/settings). The name of this theme is saved in the Jekyll `_config.yml` configuration file.
+### Build the app for production
+```bash
+quasar build
+```
 
-### Support or Contact
-
-Having trouble with Pages? Check out our [documentation](https://help.github.com/categories/github-pages-basics/) or [contact support](https://github.com/contact) and we’ll help you sort it out.
+### Customize the configuration
+See [Configuring quasar.conf.js](https://quasar.dev/quasar-cli/quasar-conf-js).
