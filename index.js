@@ -1,37 +1,57 @@
-function Matches(){
-  this.getMatches = function (text) {
+const { createApp } = Vue
 
-  }
-}
-
-new Vue({
-  'el': '#app',
-  template: '#template',
-  data: {
-    verse: '',
-    placeholder: 'Paste or type the verses you want to read'
-  },
-  methods: {
+createApp({
+  data() {
+    return {
+        reference: '',
+        verses: [],
+        bibleVersions: {
+          naa: false,
+          nvi: true,
+          nvt: false,
+        },
+        placeholder: 'Paste or type the verses you want to read'
+      }
+    },
+    methods: {
+    addVerse() {
+      if (this.reference.length) {
+        this.verses.push(this.reference.trim());
+        this.reference = '';
+      }
+    },
     go() {
-      // console.log('matches', matches);
-      let verses = this.verse.split(';')
-
-      verses.map((verse) => {
-        const trimmedVerse = verse.trim();
-
-        if (trimmedVerse.length) {
-          this.openUrl(
-            this.matches(trimmedVerse)
-          )
-        }        
-      })
+      this.verses.forEach((reference) => {
+        this.openUrl(
+            this.matches(reference)
+        )
+      });
+      this.verses = [];
+    },
+    removeVerse(verse) {
+      const index = this.verses.indexOf(verse);
+      this.verses.splice(index, 1);
     },
     openUrl(url) {
-      var win = window.open(url, '_blank');
-      win.focus();
+      window.open(url, '_blank');
     },
     matches(texto) {
-      return 'https://www.bibliaonline.com.br/nvi/' + texto.replace(' ', '/').replace('.', '/').toLowerCase()
+      let versions = [];
+      if (this.bibleVersions.naa) {
+        versions.push('naa');
+      }
+      if (this.bibleVersions.nvi) {
+        versions.push('nvi');
+      }
+      if (this.bibleVersions.nvt) {
+        versions.push('nvt');
+      }
+
+      if (!versions.length) {
+        versions.push('nvi')
+      }
+
+      return `https://www.bibliaonline.com.br/${versions.join('+')}/${texto.replace(' ', '/').replace('.', '/').toLowerCase()}`;
     }
   }
-})
+}).mount('#app')
