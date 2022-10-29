@@ -25,7 +25,8 @@ createApp({
         this.openUrl(
             this.matches(reference)
         )
-      })
+      });
+      this.verses = [];
     },
     removeVerse(verse) {
       const index = this.verses.indexOf(verse);
