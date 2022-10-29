@@ -7,20 +7,48 @@
   <title>Read That Verse!</title>
   <link rel="stylesheet" href="index.css">
 </head>
+
 <body>
   <div id="app">
-    Você precisa habilitar o javascript para utilizar este app!
-  </div>
-  <template id="template" style="display: none;">
     <div class="main-content">
       <section class="input-container">
-        <input v-model="verse" :placeholder="placeholder" />
+        <div>
+          <label for="naa">NAA</label>
+          <input type="checkbox" name="naa" id="naa" v-model="bibleVersions.naa" />
+          <label for="naa">NVI</label>
+          <input type="checkbox" name="nvi" id="nvi" v-model="bibleVersions.nvi" />
+          <label for="naa">NVT</label>
+          <input type="checkbox" name="nvt" id="nvt" v-model="bibleVersions.nvt" />
+        </div>
+        <table>
+          <tr>
+            <th>
+              <input
+                id="reference"
+                v-model="reference"
+                :placeholder="placeholder"
+                @keyup.enter="addVerse"
+              />
+            </th>
+            <th>
+              <button @click="addVerse">+</button>
+            </th>
+          </tr>
+          <tr v-for="verse in verses">
+            <td>
+              {{ verse }}
+            </td>
+            <td>
+              <button @click="removeVerse(verse)">-</button>
+            </td>
+          </tr>
+        </table>
         <button @click="go">Go and read!</button>
       </section>
     </div>
-  </template>
+  </div>
 
-  <script src="https://unpkg.com/vue"></script>
-  <script src="./index.js"></script>
+  <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+  <script src="index.js"></script>
 </body>
 </html>
