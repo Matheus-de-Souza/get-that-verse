@@ -6,9 +6,9 @@ createApp({
         reference: '',
         verses: [],
         bibleVersions: {
-        naa: false,
-        nvi: true,
-        nvt: false,
+          naa: false,
+          nvi: true,
+          nvt: false,
         },
         placeholder: 'Paste or type the verses you want to read'
       }
